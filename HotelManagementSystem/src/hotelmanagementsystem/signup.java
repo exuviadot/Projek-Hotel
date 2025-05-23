@@ -1,6 +1,7 @@
 package hotelmanagementsystem;
 
 import controller.datausercontroller;
+import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
@@ -44,8 +45,8 @@ public class signup extends javax.swing.JFrame {
         JTxtEmail = new javax.swing.JTextField();
         jPasswordField = new javax.swing.JPasswordField();
         btnSignup = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
+        btnForgot = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,27 +107,27 @@ public class signup extends javax.swing.JFrame {
         });
         getContentPane().add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, -1, -1));
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("Login");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setBackground(new java.awt.Color(255, 255, 255));
+        btnLogin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(0, 0, 0));
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, -1, -1));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, -1, -1));
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("Forgot Password?");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnForgot.setBackground(new java.awt.Color(255, 255, 255));
+        btnForgot.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnForgot.setForeground(new java.awt.Color(0, 0, 0));
+        btnForgot.setText("Forgot Password?");
+        btnForgot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnForgotActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
+        getContentPane().add(btnForgot, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -144,18 +145,23 @@ public class signup extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCloseActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        login loginFrame = new login();
+        loginFrame.setPreferredSize(new Dimension(1366, 768));
+        loginFrame.pack();
+        loginFrame.setVisible(true);
+        loginFrame.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         // TODO add your handling code here:
         dc.signup();
     }//GEN-LAST:event_btnSignupActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnForgotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnForgotActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnForgotActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,9 +236,9 @@ public class signup extends javax.swing.JFrame {
     private javax.swing.JTextField JTxtEmail;
     private javax.swing.JTextField JTxtUsername;
     private javax.swing.JButton btnClose;
+    private javax.swing.JButton btnForgot;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnSignup;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

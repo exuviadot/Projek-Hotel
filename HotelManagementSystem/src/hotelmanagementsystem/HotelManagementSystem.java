@@ -17,11 +17,11 @@ public class HotelManagementSystem {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        signup s = new signup();
-        s.setPreferredSize(new Dimension(1366, 768));
-        s.pack();
-        s.setVisible(true);
-        s.setLocationRelativeTo(null);
+        signup signupFrame = new signup();
+        signupFrame.setPreferredSize(new Dimension(1366, 768));
+        signupFrame.pack();
+        signupFrame.setVisible(true);
+        signupFrame.setLocationRelativeTo(null);
     }
     
 }
