@@ -11,9 +11,6 @@ import model.*;
 import hotelmanagementsystem.signup;
 import hotelmanagementsystem.login;
 import javax.swing.JOptionPane;
-import java.sql.*;
-import pj.connector;
-
 
 public class datausercontroller {
     private signup signupFrame;
