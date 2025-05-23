@@ -8,71 +8,130 @@ import java.util.List;
 import DAOdatauser.datauserDAO;
 import DAOImplement.datauserimplement;
 import model.*;
-import hotelmanagementsystem.signup;
-import hotelmanagementsystem.login;
+import hotelmanagementsystem.*;
 import javax.swing.JOptionPane;
 
 public class datausercontroller {
+
     private signup signupFrame;
+    private adminHome adminFrame;
     private login loginFrame;
     private datauserimplement impldatauser;
     private List<dataUser> dataUserList;
 
-    public datausercontroller(signup signupFrame) {
-        this.signupFrame = signupFrame;
+    public datausercontroller(signup frame) {
+        this.signupFrame = frame;
         this.impldatauser = new datauserDAO();
     }
-    
-    public datausercontroller(login loginFrame){
-        this.loginFrame = loginFrame;
+
+    public datausercontroller(login frame) {
+        this.loginFrame = frame;
         this.impldatauser = new datauserDAO();
     }
-    
-    public void signup() {
-        try{
-            // Validasi input
+
+    public datausercontroller(adminHome frame) {
+        this.adminFrame = frame;
+        this.impldatauser = new datauserDAO();
+    }
+
+    public datausercontroller() {
+        this.impldatauser = new datauserDAO();
+    }
+
+    public void insert() {
+        if (signupFrame == null) {
+            return;
+        }
+
+        try {
             String username = signupFrame.getJTxtUsername().getText().trim();
             String email = signupFrame.getJTxtEmail().getText().trim();
             String password = new String(signupFrame.getjPasswordField().getPassword()).trim();
 
-            if(username.isEmpty() || email.isEmpty() || password.isEmpty()){
+            if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Semua field harus diisi!", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            
+
             dataUser user = new dataUser();
             user.setUsername(username);
             user.setEmail_user(email);
             user.setPassword_user(password);
-            
-            impldatauser.signup(user);
-            
+
+            impldatauser.insert(user);
+
             JOptionPane.showMessageDialog(null, "Data berhasil disimpan.");
-        }catch(Exception ex){
+            signupFrame.dispose();
+            new login().setVisible(true);
+
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Terjadi kesalahan saat menyimpan data: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    public void login(){
-        String username = loginFrame.getjTxtUsername().getText().trim();
-        String password = loginFrame.getjTxtPassword().getText().trim();
 
-        if(username.isEmpty() || password.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Semua field harus diisi!", "Error", JOptionPane.ERROR_MESSAGE);
+    public dataUser login(String username, String password) {
+        return impldatauser.getByUsernameAndPassword(username, password);
+    }
+
+    public void isiTabel() {
+        if (adminFrame == null) {
             return;
         }
 
-        dataUser user = new dataUser();
-        user.setUsername(username);
-        user.setPassword_user(password);
+        dataUserList = impldatauser.getAll();
+        modeltabeldatauser tableModel = new modeltabeldatauser(dataUserList);
+        adminFrame.getTabelUser().setModel(tableModel);
 
-        if(impldatauser.login(user)){
-            JOptionPane.showMessageDialog(null, "Login berhasil.");
-            // lanjut ke frame utama
-            // new MainFrame().setVisible(true);
-            // loginFrame.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Username atau Password Salah!", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        adminFrame.getTabelUser().getColumnModel().getColumn(0).setMinWidth(0);
+        adminFrame.getTabelUser().getColumnModel().getColumn(0).setMaxWidth(0);
+        adminFrame.getTabelUser().getColumnModel().getColumn(0).setWidth(0);
     }
+
+    public void delete() {
+        int selectedRow = adminFrame.getTabelUser().getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(null, "Pilih baris yang ingin dihapus terlebih dahulu.", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int confirm = JOptionPane.showConfirmDialog(null, "Yakin ingin menghapus data ini?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (confirm != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        Object idObj = adminFrame.getTabelUser().getValueAt(selectedRow, 0);
+        if (idObj == null) {
+            JOptionPane.showMessageDialog(null, "ID user tidak ditemukan.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int id_user = Integer.parseInt(idObj.toString());
+        impldatauser.delete(id_user);
+
+        isiTabel();
+        JOptionPane.showMessageDialog(null, "Data berhasil dihapus.");
+    }
+    
+    public void cariuser(String keyword) {
+    try {
+            if (keyword.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Silakan masukkan kata kunci pencarian.");
+            } else {
+                List<dataUser> hasil = impldatauser.cari(keyword);
+                if (hasil.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Data dengan kata kunci tersebut tidak ditemukan.");
+                } else {
+                    modeltabeldatauser model = new modeltabeldatauser(hasil);
+                    adminFrame.getTabelUser().setModel(model);
+                }
+            } 
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan saat mencari data: " + ex.getMessage());
+        }
+    
+        adminFrame.getTabelUser().getColumnModel().getColumn(0).setMinWidth(0);
+        adminFrame.getTabelUser().getColumnModel().getColumn(0).setMaxWidth(0);
+        adminFrame.getTabelUser().getColumnModel().getColumn(0).setWidth(0);
+    }
+
 }
