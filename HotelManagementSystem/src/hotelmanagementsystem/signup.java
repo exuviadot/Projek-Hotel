@@ -1,11 +1,11 @@
 package hotelmanagementsystem;
 
 import controller.datausercontroller;
-import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import java.awt.Dimension;
 import javax.swing.JOptionPane;
 
 /*
@@ -24,6 +24,7 @@ public class signup extends javax.swing.JFrame {
      */
     public signup() {
         initComponents();
+        
         dc = new datausercontroller(this);
     }
 
@@ -36,7 +37,6 @@ public class signup extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnClose = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -46,55 +46,52 @@ public class signup extends javax.swing.JFrame {
         jPasswordField = new javax.swing.JPasswordField();
         btnSignup = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
-        btnForgot = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1366, 770));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1366, 768));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close.png"))); // NOI18N
-        btnClose.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCloseActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Username");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 90, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 90, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Email");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 60, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 60, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Password");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 80, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 80, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("SIGN UP");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 170, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 170, -1));
 
         JTxtUsername.setBackground(new java.awt.Color(255, 255, 255));
         JTxtUsername.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         JTxtUsername.setForeground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(JTxtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 430, -1));
+        getContentPane().add(JTxtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 430, 40));
 
         JTxtEmail.setBackground(new java.awt.Color(255, 255, 255));
         JTxtEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         JTxtEmail.setForeground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(JTxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 430, -1));
+        getContentPane().add(JTxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 430, 40));
 
         jPasswordField.setBackground(new java.awt.Color(255, 255, 255));
         jPasswordField.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jPasswordField.setForeground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 430, -1));
+        getContentPane().add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 430, 40));
 
         btnSignup.setBackground(new java.awt.Color(255, 255, 255));
         btnSignup.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -105,7 +102,7 @@ public class signup extends javax.swing.JFrame {
                 btnSignupActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, -1, -1));
+        getContentPane().add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, -1, 30));
 
         btnLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnLogin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -116,52 +113,82 @@ public class signup extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, -1, -1));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, 30));
 
-        btnForgot.setBackground(new java.awt.Color(255, 255, 255));
-        btnForgot.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnForgot.setForeground(new java.awt.Color(0, 0, 0));
-        btnForgot.setText("Forgot Password?");
-        btnForgot.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnForgotActionPerformed(evt);
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
+        jButton4.setText("Forgot Password ?");
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, -1, 30));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hide.png"))); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
             }
         });
-        getContentPane().add(btnForgot, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Artboard 1.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1710, 770));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/visible.png"))); // NOI18N
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, -1, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close.png"))); // NOI18N
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 10, 50, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Artboard 1_1.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-        int close = JOptionPane.showConfirmDialog(null, "Apakah kamu yakin ingin menutup aplikasi?", "Select", JOptionPane.YES_NO_OPTION);
-        
-        if(close == 0){
-            System.exit(0);
-        }
-    }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         login loginFrame = new login();
         loginFrame.setPreferredSize(new Dimension(1366, 768));
         loginFrame.pack();
-        loginFrame.setVisible(true);
         loginFrame.setLocationRelativeTo(null);
+        loginFrame.setVisible(true);
+
+    // Tutup frame Signup agar tidak menumpuk
+    this.dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         // TODO add your handling code here:
-        dc.signup();
+        dc.insert();
+        dc.isiTabel();
     }//GEN-LAST:event_btnSignupActionPerformed
 
-    private void btnForgotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnForgotActionPerformed
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnForgotActionPerformed
+        jPasswordField.setEchoChar('•');
+        jLabel6.setVisible(true);
+        jLabel7.setVisible(false);
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+        jPasswordField.setEchoChar((char) 0);
+        jLabel6.setVisible(false);
+        jLabel7.setVisible(true);
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        int a = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin untuk menutup aplikasi ini?", "Pilih", JOptionPane.YES_NO_OPTION);
+        if(a==0)
+        System.exit(0);
+    }//GEN-LAST:event_jLabel8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -235,15 +262,17 @@ public class signup extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTxtEmail;
     private javax.swing.JTextField JTxtUsername;
-    private javax.swing.JButton btnClose;
-    private javax.swing.JButton btnForgot;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnSignup;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPasswordField jPasswordField;
     // End of variables declaration//GEN-END:variables
 }
