@@ -10,8 +10,9 @@ import model.dataUser;
  * @author Bagaskara
  */
 public interface datauserimplement {
-    public void insert(dataUser u);
-    public void update(dataUser u);
+    public void signup(dataUser user);
+    public boolean login(dataUser user);
+    public void update(dataUser user);
     public void delete(int id_user);
     public List<dataUser> getAll();
 }
