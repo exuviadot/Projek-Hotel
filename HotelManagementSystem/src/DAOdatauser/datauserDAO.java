@@ -17,8 +17,8 @@ import java.util.logging.Logger;
 public class datauserDAO implements datauserimplement{
     Connection connection;
     
-    final String select = "SELECT * FROM projek_hotel";
-    final String insert = "INSERT INTO user (username, email_user, password_user) VALUES (?, ?, ?);";
+    final String login = "SELECT * FROM user WHERE username = ? AND password_user = ?";
+    final String signup = "INSERT INTO user (username, email_user, password_user) VALUES (?, ?, ?);";
     
     private static final Logger LOGGER = Logger.getLogger(datauserDAO.class.getName());
     
@@ -27,32 +27,48 @@ public class datauserDAO implements datauserimplement{
     }
     
     @Override
-    public void insert(dataUser u){
-    PreparedStatement statement = null;
-    try {
-            statement = connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, u.getUsername());
-            statement.setString(2, u.getEmail_user());
-            statement.setString(3, u.getPassword_user());
-            statement.executeUpdate();
-            ResultSet rs = statement.getGeneratedKeys();
-            while (rs.next()) {
-                u.setId_user(rs.getInt(1));
-                
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }finally{
-            try {
-                statement.close();
+    public void signup(dataUser user) {
+        PreparedStatement statement = null;
+        try{
+                statement = connection.prepareStatement(signup, Statement.RETURN_GENERATED_KEYS);
+                statement.setString(1, user.getUsername());
+                statement.setString(2, user.getEmail_user());
+                statement.setString(3, user.getPassword_user());
+                statement.executeUpdate();
+                ResultSet rs = statement.getGeneratedKeys();
+                while (rs.next()) {
+                    user.setId_user(rs.getInt(1));
+
+                }
             }catch(SQLException ex){
                 ex.printStackTrace();
+            }finally{
+                try{
+                    statement.close();
+                }catch(SQLException ex){
+                    ex.printStackTrace();
+                }
             }
+    }
+    
+    @Override
+    public boolean login(dataUser user) {
+        PreparedStatement statement = null;
+        try{
+            statement = connection.prepareStatement(login);
+            statement.setString(1, user.getUsername());
+            statement.setString(2, user.getPassword_user());
+            
+            ResultSet rs = statement.executeQuery();
+            return rs.next();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+            return false;
         }
     }
 
     @Override
-    public void update(dataUser u) {
+    public void update(dataUser user) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
